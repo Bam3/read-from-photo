@@ -6,13 +6,11 @@ const worker = createWorker({
 
 (async () => {
   await worker.load();
-  await worker.loadLanguage("eng");
-  await worker.initialize("eng");
+  await worker.loadLanguage("slv");
+  await worker.initialize("slv");
   const {
-    data: { text },
-  } = await worker.recognize(
-    "https://tesseract.projectnaptha.com/img/eng_bw.png"
-  );
-  console.log(text);
+    data: { text, paragraphs },
+  } = await worker.recognize("photos/IMG_20221101_114142.jpg");
+  console.log(paragraphs);
   await worker.terminate();
 })();
