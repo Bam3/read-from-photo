@@ -17,9 +17,12 @@ function startup() {
 }
 
 startup();
-
+const constraints = {
+  audio: true,
+  video: { width: 1280, height: 720, facingMode: "user" },
+};
 navigator.mediaDevices
-  .getUserMedia({ video: { facingMode: "environment" }, audio: false })
+  .getUserMedia(constraints)
   .then((stream) => {
     video.srcObject = stream;
     video.play();
