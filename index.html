@@ -8,14 +8,15 @@
     <title>Read From Photo</title>
   </head>
   <body>
-    <img
-      class="bill"
-      id="bill-naklo"
-      src="./photos/IMG_20221031_202324__01.jpg"
-    />
-    <img class="bill" id="bill-naklo" src="./photos/IMG_20221031_211737.jpg" />
-    <img class="bill" id="bill-naklo" src="./photos/IMG_20221031_212502.jpg" />
-    <script src="app.js"></script>
-    <script src="js/tesseract-ocr.js"></script>
+    <div class="camera">
+      <video id="video">Video stream not available.</video>
+      <button id="startbutton">Take photo</button>
+    </div>
+    <canvas id="canvas"> </canvas>
+    <div class="output">
+      <img id="photo" alt="The screen capture will appear in this box." />
+    </div>
+    <!--  <script src="app.js"></script>  -->
+    <script src="takePhoto.js"></script>
   </body>
 </html>
