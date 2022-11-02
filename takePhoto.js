@@ -19,7 +19,7 @@ function startup() {
 startup();
 const constraints = {
   audio: false,
-  video: { width: 1280, height: 720, facingMode: "user" },
+  video: { width: 1280, height: 720, facingMode: "environment" },
 };
 navigator.mediaDevices
   .getUserMedia(constraints)
