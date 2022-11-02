@@ -1,5 +1,5 @@
-let width = 1000; // We will scale the photo width to this
-let height = 1000; // This will be computed based on the input stream
+let width = 390; // We will scale the photo width to this
+let height = 800; // This will be computed based on the input stream
 
 let streaming = false;
 
@@ -19,7 +19,7 @@ function startup() {
 startup();
 
 navigator.mediaDevices
-  .getUserMedia({ video: true, audio: false })
+  .getUserMedia({ video: { facingMode: "environment" }, audio: false })
   .then((stream) => {
     video.srcObject = stream;
     video.play();
