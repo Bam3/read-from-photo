@@ -1,3 +1,6 @@
+//const { createWorker } = require("tesseract.js");
+//const picture = require("./takePhoto");
+
 let width = 390; // We will scale the photo width to this
 let height = 800; // This will be computed based on the input stream
 
@@ -7,11 +10,30 @@ let video = null;
 let canvas = null;
 let photo = null;
 let startbutton = null;
+let paragraph = null;
+
+const worker = Tesseract.createWorker({
+  logger: (m) => console.log(m), // Add logger here
+});
+
+async function readPicture(data) {
+  await worker.load();
+  await worker.loadLanguage("slv");
+  await worker.initialize("slv");
+  const {
+    data: { text, paragraphs },
+  } = await worker.recognize(data);
+  console.log(text, "inside Tesseract");
+  paragraph.innerText = text;
+  //console.log(data, "inside app");
+  await worker.terminate();
+}
 
 function startup() {
   video = document.getElementById("video");
   canvas = document.getElementById("canvas");
   photo = document.getElementById("photo");
+  paragraph = document.getElementById("paragraph");
   startbutton = document.getElementById("startbutton");
   clearphoto();
 }
@@ -52,6 +74,7 @@ startbutton.addEventListener(
   (ev) => {
     data = takepicture();
     console.log("inside eventlistener", data);
+    readPicture(data);
     //ev.preventDefault();
   },
   false
@@ -64,7 +87,7 @@ function takepicture() {
     canvas.height = height;
     context.drawImage(video, 0, 0, width, height);
 
-    const data = canvas.toDataURL("image/png");
+    const data = canvas.toDataURL("image/jpg");
     photo.setAttribute("src", data);
     return data;
   } else {
