@@ -1,8 +1,8 @@
 //const { createWorker } = require("tesseract.js");
 //const picture = require("./takePhoto");
 
-let width = 390; // We will scale the photo width to this
-let height = 800; // This will be computed based on the input stream
+let width = 360; // We will scale the photo width to this
+let height = 700; // This will be computed based on the input stream
 
 let streaming = false;
 
@@ -85,6 +85,7 @@ function takepicture() {
   if (width && height) {
     canvas.width = width;
     canvas.height = height;
+    console.log("inside takepicture", width, height);
     context.drawImage(video, 0, 0, width, height);
 
     const data = canvas.toDataURL("image/jpg");
