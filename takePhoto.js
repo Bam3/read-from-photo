@@ -1,8 +1,8 @@
 //const { createWorker } = require("tesseract.js");
 //const picture = require("./takePhoto");
 
-let width = 360; // We will scale the photo width to this
-let height = 700; // This will be computed based on the input stream
+let width = 720; // We will scale the photo width to this
+let height = 1280; // This will be computed based on the input stream
 
 let streaming = false;
 
@@ -57,7 +57,7 @@ video.addEventListener(
   "canplay",
   (ev) => {
     if (!streaming) {
-      height = (video.videoHeight / video.videoWidth) * width;
+      //height = (video.videoHeight / video.videoWidth) * width;
 
       video.setAttribute("width", width);
       video.setAttribute("height", height);
