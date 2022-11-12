@@ -45,9 +45,9 @@ const constraints = {
   audio: false,
   video: {
     facingMode: "environment",
-    width: { min: 1024, ideal: 1920, max: 1920 },
-    height: { min: 576, ideal: 1080, max: 1080 },
-    frameRate: { ideal: 30, max: 60 },
+    width: { min: 1024, ideal: 1280, max: 1920 },
+    height: { min: 576, ideal: 720, max: 1080 },
+    frameRate: { ideal: 20, max: 30 },
   },
 };
 navigator.mediaDevices
