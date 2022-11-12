@@ -65,8 +65,8 @@ video.addEventListener(
   "canplay",
   (ev) => {
     console.log(video.videoHeight, video.videoWidth, "inside Canplay");
-    cameraWidth.innerText = "Camera Width:" + video.videoWidth;
-    cameraHeight.innerText = "Camera Height:" + video.videoHeight;
+    cameraWidth.innerText = "1920 -Camera Width:" + video.videoWidth;
+    cameraHeight.innerText = "1080 -Camera Height:" + video.videoHeight;
     if (!streaming) {
       //height = (video.videoHeight / video.videoWidth) * width;
 
