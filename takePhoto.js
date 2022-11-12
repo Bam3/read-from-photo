@@ -1,8 +1,8 @@
 //const { createWorker } = require("tesseract.js");
 //const picture = require("./takePhoto");
 
-let width = 720; // We will scale the photo width to this
-let height = 1280; // This will be computed based on the input stream
+let width = 1280; // We will scale the photo width to this
+let height = 720; // This will be computed based on the input stream
 
 let streaming = false;
 
@@ -41,13 +41,19 @@ function startup() {
 startup();
 const constraints = {
   audio: false,
-  video: { facingMode: "environment" },
+  video: {
+    exact: "environment",
+    width: { min: 1024, ideal: 1920, max: 1920 },
+    height: { min: 576, ideal: 1080, max: 1080 },
+    frameRate: { ideal: 30, max: 60 },
+  },
 };
 navigator.mediaDevices
   .getUserMedia(constraints)
   .then((stream) => {
     video.srcObject = stream;
     video.play();
+    console.log(video.videoWidth, video.videoHeight, "inside stram");
   })
   .catch((err) => {
     console.error(`An error occurred: ${err}`);
@@ -56,6 +62,7 @@ navigator.mediaDevices
 video.addEventListener(
   "canplay",
   (ev) => {
+    console.log(video.videoHeight, video.videoWidth, "inside Canplay");
     if (!streaming) {
       //height = (video.videoHeight / video.videoWidth) * width;
 
