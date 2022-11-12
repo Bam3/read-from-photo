@@ -35,6 +35,8 @@ function startup() {
   photo = document.getElementById("photo");
   paragraph = document.getElementById("paragraph");
   startbutton = document.getElementById("startbutton");
+  cameraWidth = document.getElementById("camera-width");
+  cameraHeight = document.getElementById("camera-height");
   clearphoto();
 }
 
@@ -63,6 +65,8 @@ video.addEventListener(
   "canplay",
   (ev) => {
     console.log(video.videoHeight, video.videoWidth, "inside Canplay");
+    cameraWidth.innerText = "Camera Width:" + video.videoWidth;
+    cameraHeight.innerText = "Camera Height:" + video.videoHeight;
     if (!streaming) {
       //height = (video.videoHeight / video.videoWidth) * width;
 
