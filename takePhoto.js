@@ -45,8 +45,8 @@ const constraints = {
   audio: false,
   video: {
     facingMode: "environment",
-    width: { min: 640, ideal: 640, max: 1920 },
-    height: { min: 360, ideal: 360, max: 1080 },
+    width: { min: 640, ideal: 1280, max: 1920 },
+    height: { min: 360, ideal: 720, max: 1080 },
     frameRate: { ideal: 30, max: 30 },
   },
 };
