@@ -45,8 +45,8 @@ const constraints = {
   audio: false,
   video: {
     facingMode: "environment",
-    width: { min: 1024, ideal: 1920, max: 1920 },
-    height: { min: 576, ideal: 1080, max: 1080 },
+    width: { min: 1024, ideal: 1280, max: 1920 },
+    height: { min: 576, ideal: 720, max: 1080 },
     frameRate: { ideal: 30, max: 30 },
   },
 };
@@ -65,8 +65,8 @@ video.addEventListener(
   "canplay",
   (ev) => {
     console.log(video.videoHeight, video.videoWidth, "inside Canplay");
-    cameraWidth.innerText = "1920 -Camera Width:" + video.videoWidth;
-    cameraHeight.innerText = "1080 -Camera Height:" + video.videoHeight;
+    cameraWidth.innerText = "1280 -Camera Width:" + video.videoWidth;
+    cameraHeight.innerText = "720 -Camera Height:" + video.videoHeight;
     if (!streaming) {
       //height = (video.videoHeight / video.videoWidth) * width;
 
