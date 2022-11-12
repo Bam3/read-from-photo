@@ -65,8 +65,8 @@ video.addEventListener(
   "canplay",
   (ev) => {
     console.log(video.videoHeight, video.videoWidth, "inside Canplay");
-    cameraWidth.innerText = "640 -Camera Width:" + video.videoWidth;
-    cameraHeight.innerText = "360 -Camera Height:" + video.videoHeight;
+    cameraWidth.innerText = "64 -Camera Width:" + video.videoWidth;
+    cameraHeight.innerText = "36 -Camera Height:" + video.videoHeight;
     if (!streaming) {
       //height = (video.videoHeight / video.videoWidth) * width;
 
